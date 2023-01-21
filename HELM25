@@ -1,0 +1,103 @@
+#include <OneWire.h>
+
+int buzzer = 2;
+int alcsen = 0;
+int swt = 1;
+int mt = 8;
+
+void setup()
+{
+
+pinMode(buzzer,OUTPUT);
+pinMode(alcsen,INPUT);
+pinMode(swt,INPUT);
+pinMode(mt,OUTPUT);
+
+
+  
+  
+ 
+  
+   digitalWrite(buzzer,HIGH);
+ digitalWrite(mt,LOW);
+
+
+delay(1000);
+ digitalWrite(mt,HIGH);
+  digitalWrite(buzzer,LOW);
+delay(1000);
+
+  
+while(digitalRead(swt)==HIGH);
+digitalWrite(buzzer,HIGH);
+      
+}
+
+
+void loop()
+{
+
+if(digitalRead(swt)==LOW)
+{
+  
+    
+  while( digitalRead(alcsen)==HIGH && digitalRead(swt)==LOW);
+  }
+
+  if(digitalRead(swt)==HIGH)
+{     
+  
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+   
+    if(digitalRead(swt)==HIGH)
+{  
+ digitalWrite(mt,HIGH);
+  while( digitalRead(alcsen)==HIGH && digitalRead(swt)==HIGH);
+
+}
+}
+
+  if(digitalRead(alcsen)==LOW)
+{  
+  
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+digitalWrite(buzzer,LOW);
+delay(500);
+   digitalWrite(buzzer,HIGH);
+delay(500);
+   
+    if(digitalRead(alcsen)==LOW)
+{  
+ digitalWrite(mt,HIGH);
+  while( digitalRead(alcsen)==LOW );
+
+}
+}
+
+
+  
+
+
+}
